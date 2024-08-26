@@ -6,9 +6,13 @@ function App() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch(
-          "https://gmgn.ai/defi/quotation/v1/rank/sol/swaps/1h?orderby=swaps&direction=desc&filters[]=renounced&filters[]=frozen"
-        );
+        const url =
+          "http://www.whateverorigin.org/get?url=" +
+          encodeURI(
+            "https://gmgn.ai/defi/quotation/v1/rank/sol/swaps/1h?orderby=swaps&direction=desc&filters[]=renounced&filters[]=frozen"
+          );
+        const response = await fetch(url);
+
         const data = await response.json();
         setData(data);
       } catch (e) {
